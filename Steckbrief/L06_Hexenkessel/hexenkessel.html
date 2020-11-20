@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexenkessel</title>
+    <link rel="stylesheet" href="hexenkessel.css" type="text/css" media="screen" />
+    <script src="hexenkessel.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <header>
+    <h1>Hexenkessel</h1>
+    <h3>Zum Erfinden eigener Rezepte für Zaubertränke</h3>
+    </header>
+    <form>
+      <div id="form">
+         <h1>Zubereitung</h1>
+         <br>
+         <fieldset>
+         <legend>Name des Tranks</legend>
+         <input type="text" name="Text" placeholder="Hier tippen" id="name" required />
+        </fieldset>
+<br>
+        <fieldset>
+            <legend>Beschreibung Risiken und Nebenwirkungen</legend>
+            <textarea name="Area" rows="5" placeholder="Hier eingeben" id="risikenNebenwirkungen"></textarea>
+        </fieldset>
+<br>
+        <fieldset>
+            <legend>Wirkung</legend>
+            <input type="text" name="Datalist" list="options" placeholder="Wirkung wählen" id="wirkung"/>
+		<datalist id="options">
+			<option value="Liebestrank"> </option>
+			<option value="Heilen"> </option>
+			<option value="Superkräfte"> </option>
+			<option value="Gift"> </option>
+			<option value="Schrumpfen"> </option>
+			<option value="Verwandlungstrank"> </option>
+			<option value="Verjüngungstrank"> </option>
+		</datalist>
+        </fieldset>
+<br>
+        <fieldset>
+            <legend>Dauer der Wirkung in Std.</legend>
+            <input type="number" name="Stepper" step="0.5" min="0" max="24" value="0" id="dauer"/>
+        </fieldset>
+<br>
+        <fieldset>
+            <legend>Hinzufügen von Zutaten</legend>
+            <input type="checkbox" name="Zutat1" id="gift" value="Gift" price="100">
+            <label for="gift">Gift</label>
+        <span>
+            0
+            <input type="range" name="SliderZutat1" min="0" max="10" step="1" value="0" id="anzahlGift" /> 
+            10
+        </span>
+            <br>
+            <input type="checkbox" name="Zutat2" id="froschbeine" value="Froschbeine" price="30">
+            <label for="froschbeine">Froschbeine</label>
+        <span>
+            0
+            <input type="range" name="SliderZutat2" min="0" max="10" step="1" value="0" id="anzahlFrosch" />
+            10
+        </span>
+            <br>
+            <input type="checkbox" name="Zutat3" id="rattenschwänze" value="Rattenschwänze" price="40">
+            <label for="rattenschwänze">Rattenschwänze</label>
+        <span>
+            0
+            <input type="range" name="SliderZutat3" min="0" max="10" step="1" value="0" id="anzahlRatten" />
+            10
+        </span>
+            <br>
+            <input type="checkbox" name="Zutat4" id="blumenblätter" value="Blumenblätter" price="60">
+            <label for="blumenblätter">Blumenblätter</label> 
+        <span>
+            0
+            <input type="range" name="SliderZutat4" min="0" max="10" step="1" value="0" id="anzahlBlumen" />
+            10
+        </span>
+        </fieldset>
+<br>
+        <fieldset>
+            <legend>Erhitzen bzw. Abkühlen</legend>
+            <h4>Temperatur in C°</h4>
+        <span>
+            -100
+                <input type="range" name="Temperatur" min="-100" max="4000" step="10" value="0" id="temperatur" />
+            +4000
+        </span>
+            <h4>Dauer in min.</h4>
+         <span>
+             0
+                <input type="range" name="Dauer" min="0" max="360" step="10" value="0" id="dauerTemp" />
+            360
+        </span>
+            <h4>Konsistenz</h4>
+				<input type="radio" name="Radiogroup" id="zäh" value="Zäh" checked/>
+				<label for="zäh">zäh</label>
+				<input type="radio" name="Radiogroup" id="schleimig" value="Schleimig" />
+				<label for="schleimig">schleimig</label>
+				<input type="radio" name="Radiogroup" id="dünnflüssig" value="Dünnflüssig" />
+                <label for="dünnflüssig">dünnflüssig</label>
+            <h4>Farbe</h4>
+                <input type="color" name="Color" placeholder="green" id="colorTemp" value="#00ff00">
+        </fieldset>
+<br>
+        <fieldset>
+            <legend>Rühren</legend>
+            <h4>Intensität</h4>
+         <span>
+             0
+                <input type="range" name="Intensität" min="0" max="10" step="1" value="0" id="intensität" />
+             10
+        </span>
+            <h4>Dauer in min.</h4>
+        <span>
+            0
+                <input type="range" name="Dauer" min="0" max="360" step="10" value="0" id="dauerRühr" />
+            360
+        </span>
+            <h4>Konsistenz</h4>
+				<input type="radio" name="Radiogroup1" id="zäh" value="Zäh" checked/>
+				<label for="zäh">zäh</label>
+				<input type="radio" name="Radiogroup1" id="schleimig" value="Schleimig" />
+				<label for="schleimig">schleimig</label>
+				<input type="radio" name="Radiogroup1" id="dünnflüssig" value="Dünnflüssig" />
+                <label for="dünnflüssig">dünnflüssig</label>
+            <h4>Farbe</h4>
+                <input type="color" name="Color" placeholder="green" id="colorRühr" value="#00ff00">
+                <br>
+                <br>
+                <input type="button" id="buttonstart" value="Rezept erstellen">
+        </fieldset>
+      </div>
+    </form>
+
+    <form>
+        <div>
+            <h1>Dein Rezept</h1>
+            <div id="rezept">
+                <p id="out"></p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
