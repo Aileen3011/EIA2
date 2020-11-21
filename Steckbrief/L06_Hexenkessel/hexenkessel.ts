@@ -1,12 +1,23 @@
-namespace L03_Hexenkessel {
-    window.onload = function() {
+namespace L06_Hexenkessel {
+    window.addEventListener("load", handleLoad);
+    
+
+    async function handleLoad(_event: Event): Promise<void> {
+        console.log("Start");
+        let response: Response = await fetch("Data6.json");
+        let offer: string = await response.text();
+        let data: Data = JSON.parse(offer);
+
+        generateContent(data);
+    
+        window.onload = function() {
         let button = document.getElementById("buttonstart");
         if(button!=null){
         button.addEventListener("click",handleButton);
         
     }
-
-    function handleButton(){
+   
+    async function handleButton(){
         if((<HTMLInputElement>document.getElementById("name")).value==""||
         (<HTMLInputElement>document.getElementById("risikenNebenwirkungen")).value==""||
         (<HTMLInputElement>document.getElementById("wirkung")).value==""||
@@ -132,4 +143,5 @@ namespace L03_Hexenkessel {
         
         return umrechnung;
     }
+    
 }

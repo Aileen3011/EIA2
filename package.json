@@ -1,0 +1,19 @@
+{
+  "name": "eia2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "https://eia2wintersemester.herokuapp.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aileen3011/EIA2.git"
+  },
+  "author": "Aileen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aileen3011/EIA2/issues"
+  },
+  "homepage": "https://github.com/Aileen3011/EIA2#readme"
+}
