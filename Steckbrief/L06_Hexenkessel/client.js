@@ -1,6 +1,7 @@
 "use strict";
 var L06_Hexenkessel;
 (function (L06_Hexenkessel) {
+    //erarbeitet mit corinna
     async function getData() {
         let response = await fetch("date.json");
         let content = await response.text();
@@ -12,8 +13,8 @@ var L06_Hexenkessel;
     L06_Hexenkessel.getData = getData;
     async function sendPotion(_event) {
         console.log("sendPotion");
-        // let url: string = HEROKU hier
-        let url = "http://localhost5001";
+        let url = "https://eia2wintersemester.herokuapp.com/";
+        //let url: string = "http://localhost5001";
         let formData = new FormData(document.forms[0]);
         let query = new URLSearchParams(formData);
         console.log("Query:");

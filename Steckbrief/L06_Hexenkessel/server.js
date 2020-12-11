@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.L06_Hexenkessel = void 0;
+//erarbeitet mit corinna
 var L06_Hexenkessel;
 (function (L06_Hexenkessel) {
     let server = Http.createServer();
