@@ -1,0 +1,25 @@
+form{
+	width: 100%;
+}
+
+header {
+	text-align: center;
+}
+
+#Formation {
+	border: thin solid black;
+	margin-left: 25%;
+	width: 50%;
+}
+h3 {
+	text-align: center;
+}
+
+#slider {
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+#Button{
+	margin-left: 25%;
+}

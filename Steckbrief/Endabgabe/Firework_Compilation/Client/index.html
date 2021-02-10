@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Firework_Compilation</title>
+	<link rel="stylesheet" href="Stylesheet.css" type="text/css" media="screen" />
+
+	<script src="Generate_Content.js" type="text/javascript" charset="utf-8"></script>
+	<script src="Firework_Compilation.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+	<header>
+		<h1>Firework Compilation</h1>
+		<p>Create your own rockets!</p>
+	</header>
+
+	<form id="rocketForm" method="GET"> <!--Methode um sich die Daten zu holen get und post-->
+		<div id="Formation">
+			<h3>Select here</h3>
+			<fieldset>
+				<legend>Name</legend>
+				<input type="text" name="Text" placeholder="Hier Name eingeben" id="name" required />  <!--Required = notwendig-->
+			</fieldset>
+			<fieldset>
+				<legend>Form</legend>
+				<input type="text" name="Datalist" list="options" placeholder="Form wählen" id="form"/>
+				<datalist id="options">
+					<option value="Kreis"> </option>
+					<option value="Quadrat"> </option>
+					<option value="Dreieck"> </option>
+					<option value="Herz"> </option>
+				</datalist>
+			</fieldset>
+			<fieldset>
+				<legend>Farbe</legend>
+				<input type="color" name="Color" placeholder="green" id="color" value="#00ff00">
+			</fieldset>
+			<fieldset>
+				<legend>Radius</legend>
+				<span>
+					<span>
+						10
+						<input type="range" name="Radius" id="slider_Radius" min="10" max="100" step="10" value="50">
+						100
+					</span>
+				</span>
+			</fieldset>
+			<fieldset>
+				<legend>Lebensdauer</legend>
+				<span>
+					<span>
+						1
+						<input type="range" name="Lebensdauer" id="slider_Lebensdauer" min="1" max="100" step="1" value="50">
+						100
+					</span>
+				</span>
+			</fieldset>
+			<fieldset>
+				<legend>Anzahl Partikel</legend>
+				<span>
+					<span>
+						10
+						<input type="range" name="Anzahl Partikel" id="slider_Partikel" min="10" max="1000" step="10" value="500">
+						1000
+					</span>
+				</span>
+		</div>
+		<br>
+		<div id="Button">
+			<button type="reset" form="rocketForm">Reset</button>
+			
+			<button type="button" form="rocketForm">Save</button></div>	
+	</form>
+</body>
+
+</html>
