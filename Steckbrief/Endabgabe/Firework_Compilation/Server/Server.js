@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.L07_CocktailBar = void 0;
+exports.Firework_Compilation = void 0;
 const Http = require("http");
 const Url = require("url");
 const Mongo = require("mongodb");
-var L07_CocktailBar;
-(function (L07_CocktailBar) {
-    let orders;
-    let port = process.env.PORT;
-    if (port == undefined)
-        port = 5001;
+var Firework_Compilation;
+(function (Firework_Compilation) {
     let databaseUrl = "mongodb://localhost:27017";
+    let options = { useNewUrlParser: true, useUnifiedTopology: true };
+    let mongoClient = new Mongo.MongoClient(databaseUrl, options);
+    let fireworks;
+    let port = 5001;
     startServer(port);
     connectToDatabase(databaseUrl);
     function startServer(_port) {
@@ -20,29 +20,49 @@ var L07_CocktailBar;
         server.addListener("request", handleRequest);
     }
     async function connectToDatabase(_url) {
-        let options = { useNewUrlParser: true, useUnifiedTopology: true };
-        let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-        orders = mongoClient.db("CocktailBar").collection("Orders");
-        console.log("Database connection ", orders != undefined);
+        fireworks = mongoClient.db("Firework").collection("Compilations");
+        console.log("Database connection ", fireworks != undefined);
     }
-    function handleRequest(_request, _response) {
+    async function handleRequest(_request, _response) {
         console.log("What's up?");
+        let a = Url.parse(_request.url).pathname;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        if (_request.url) {
-            let url = Url.parse(_request.url, true);
-            for (let key in url.query) {
-                _response.write(key + ":" + url.query[key] + "<br/>");
-            }
-            let jsonString = JSON.stringify(url.query);
-            _response.write(jsonString);
-            storeOrder(url.query);
+        let nodeArr;
+        switch (a) {
+            case "/rockets":
+                console.log("rockets");
+                getData(function (res) {
+                    nodeArr = res;
+                    let respArr = JSON.stringify(nodeArr);
+                    _response.write(respArr);
+                    _response.end();
+                });
+                break;
+            case "/store":
+                console.log("store");
+                let url = Url.parse(_request.url, true);
+                let jsonString = JSON.stringify(url.query);
+                _response.write(jsonString);
+                storeFirework(url.query);
+                _response.end();
+                break;
+            default:
+                _response.writeHead(404);
+                _response.end();
+                break;
         }
-        _response.end();
     }
-    function storeOrder(_order) {
-        orders.insert(_order);
+    function storeFirework(_order) {
+        fireworks.insertOne(_order);
     }
-})(L07_CocktailBar = exports.L07_CocktailBar || (exports.L07_CocktailBar = {}));
+    function getData(callback) {
+        mongoClient.db("Firework").collection("Compilations").find({}).toArray(function (err, docs) {
+            if (err)
+                throw err;
+            callback(docs);
+        });
+    }
+})(Firework_Compilation = exports.Firework_Compilation || (exports.Firework_Compilation = {}));
 //# sourceMappingURL=Server.js.map
