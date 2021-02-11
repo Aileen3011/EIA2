@@ -6,13 +6,13 @@
 	<title>Firework_Compilation</title>
 	<link rel="stylesheet" href="Stylesheet.css" type="text/css" media="screen" />
 
-	<script src="Generate_Content.js" type="text/javascript" charset="utf-8"></script>
+	
 	<script src="Firework_Compilation.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
 	<header>
-		<h1>Firework Compilation</h1>
+		<h1>FIREWORK COMPILATION</h1>
 		<p>Create your own rockets!</p>
 	</header>
 
@@ -21,11 +21,11 @@
 			<h3>Select here</h3>
 			<fieldset>
 				<legend>Name</legend>
-				<input type="text" name="Text" placeholder="Hier Name eingeben" id="name" required />  <!--Required = notwendig-->
+				<input type="text" name="Name" placeholder="Hier Name eingeben" id="name" required />  <!--Required = notwendig-->
 			</fieldset>
 			<fieldset>
 				<legend>Form</legend>
-				<input type="text" name="Datalist" list="options" placeholder="Form wählen" id="form"/>
+				<input type="text" name="Form" list="options" placeholder="Form wählen" id="form" required/>
 				<datalist id="options">
 					<option value="Kreis"> </option>
 					<option value="Quadrat"> </option>
@@ -35,43 +35,41 @@
 			</fieldset>
 			<fieldset>
 				<legend>Farbe</legend>
-				<input type="color" name="Color" placeholder="green" id="color" value="#00ff00">
+				<input type="color" name="Farbe" id="color" value="#4b0082"/>
 			</fieldset>
 			<fieldset>
 				<legend>Radius</legend>
-				<span>
 					<span>
 						10
-						<input type="range" name="Radius" id="slider_Radius" min="10" max="100" step="10" value="50">
+						<input type="range" name="Radius" id="slider_Radius" min="10" max="100" step="10" value="10"/>
 						100
 					</span>
-				</span>
 			</fieldset>
 			<fieldset>
 				<legend>Lebensdauer</legend>
-				<span>
 					<span>
-						1
-						<input type="range" name="Lebensdauer" id="slider_Lebensdauer" min="1" max="100" step="1" value="50">
-						100
+						1 sec
+						<input type="range" name="Lebensdauer" id="slider_Lebensdauer" min="1" max="60" step="1" value="1"/>
+						60 sec
 					</span>
-				</span>
 			</fieldset>
 			<fieldset>
 				<legend>Anzahl Partikel</legend>
-				<span>
 					<span>
 						10
-						<input type="range" name="Anzahl Partikel" id="slider_Partikel" min="10" max="1000" step="10" value="500">
+						<input type="range" name="AnzahlPartikel" id="slider_Partikel" min="10" max="1000" step="10" value="10"/>
 						1000
 					</span>
-				</span>
+			</fieldset>
 		</div>
 		<br>
 		<div id="Button">
 			<button type="reset" form="rocketForm">Reset</button>
 			
-			<button type="button" form="rocketForm">Save</button></div>	
+			<button type="button" form="rocketForm" id="save">Save</button>
+
+			<span id="click">If you want to test your rockets <a target="_blank" href="https://github.com/Aileen3011/EIA2">click here</a></span>
+		</div>	
 	</form>
 </body>
 
