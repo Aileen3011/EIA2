@@ -1,0 +1,89 @@
+#input{
+	position: relative;
+	width: 100%;
+	height: 100px;
+	overflow-y: scroll;
+	scrollbar-highlight-color: blanchedalmond;
+	scrollbar-color: white green;
+}
+
+.scrollable-element {
+	scrollbar-color: red yellow;
+  }
+canvas{
+	position: absolute;
+	margin: 0 auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #000033;
+}
+
+.rest{
+	position: relative;
+	background-color: white;
+	color: #000033;
+	border-radius: 0px;
+	border-color: white;
+	border-style: solid;
+	width: 75%;
+	border-collapse: collapse;
+}
+
+.Current{
+	position: relative;
+	background-color: #000033;
+	color: white;
+	border-radius: 0px;
+	border-color: white;
+	border-style: solid;
+	width: 75%;
+	border-collapse: collapse;
+}
+.restDel{
+	position: relative;
+	background-color: white;
+	color: #000033;
+	border-radius: 0px;
+	border-color: white;
+	border-style: solid;
+	width: 25%;
+	border-collapse: collapse;
+}
+
+
+
+h2{
+	color: white;
+	position: relative;
+}
+
+span{
+	color: white;
+}
+
+a{
+	color: white;
+	position: relative;
+}
+
+#click{
+	
+	color: white;
+	position: relative;;
+}
+
+#struct{
+	width: 150px;
+}
+
+#input {
+	scrollbar-face-color: #000033 !important;
+	scrollbar-shadow-color: #000033 !important;
+	scrollbar-highlight-color: white !important;
+	scrollbar-3dlight-color: white !important;
+	scrollbar-darkshadow-color: #000033 !important;
+	scrollbar-track-color: #000033 !important;
+	scrollbar-arrow-color: #000033 !important;
+  }

@@ -17,11 +17,11 @@ namespace Firework_Testing{
 
   drawParticle(){
     
-       crc2.beginPath();
+       /*crc2.beginPath();
        crc2.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
        crc2.fillStyle = this.color
        crc2.fill()
-       crc2.closePath()
+       crc2.closePath()*/
    }
 
    update(){

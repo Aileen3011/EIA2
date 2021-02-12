@@ -8,8 +8,12 @@ export namespace Firework_Compilation {
     interface Firework{
         [type:string]: string | string[] | undefined;
     }
+
+    interface DeleteItem{
+        name:string;
+    }
     
-    let databaseUrl: string = "mongodb://localhost:27017";
+    let databaseUrl: string = "mongodb+srv://Aileen:1234@clusterfireworkeia2.bk6eh.mongodb.net/Firework?retryWrites=true&w=majority";
     let options: Mongo.MongoClientOptions = {useNewUrlParser: true, useUnifiedTopology: true};
     let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(databaseUrl, options);
     let fireworks: Mongo.Collection;
@@ -34,19 +38,18 @@ export namespace Firework_Compilation {
     }
 
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
-        console.log("What's up?");
-        let a = Url.parse(_request.url!).pathname;
+        
+        let pathname = Url.parse(_request.url!).pathname;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        let nodeArr:string[];
+       
 
-        switch(a){
+        switch(pathname){
             case "/rockets":
                 console.log("rockets");
-                getData(function (res:string[]){
-                    nodeArr = res;
-                    let respArr:string = JSON.stringify(nodeArr);
-                    _response.write(respArr); 
+                getData(function (result:string[]){
+                    let responseArray:string = JSON.stringify(result);
+                    _response.write(responseArray); 
                     _response.end();   
                 });             
                 break;
@@ -58,6 +61,15 @@ export namespace Firework_Compilation {
                 storeFirework(url.query);
                 _response.end();
                 break;
+            case "/delete":
+                console.log("delete");
+                let url2: Url.UrlWithParsedQuery = Url.parse(_request.url!, true);
+                let jsonString2: string = JSON.stringify(url2.query);
+                let del:DeleteItem= JSON.parse(jsonString2);
+                _response.write(jsonString2);
+                deleteFirework(del.name);
+                _response.end();
+                break;
             default:
                 _response.writeHead(404);
                 _response.end();
@@ -67,8 +79,12 @@ export namespace Firework_Compilation {
     }
 
 
-    function storeFirework(_order: Firework): void {
-        fireworks.insertOne(_order);
+    function storeFirework(_firework: Firework): void {
+        fireworks.insertOne(_firework);
+    }
+
+    function deleteFirework(rocketName:string) {
+        fireworks.deleteOne({"Name":rocketName});
     }
 
     function getData(callback:any):void{

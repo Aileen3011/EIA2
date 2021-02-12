@@ -16,11 +16,12 @@ var Firework_Compilation;
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
         let response = await fetch(url + "/store?" + query.toString());
+        console.log(query.toString());
         let responseText = await response.text();
         let rocket = JSON.parse(responseText);
         alert("Folgende Daten wurden an den Server geschickt:\nName der Rakete: " +
             rocket.Name + " \nForm der Rakete: " + rocket.Form + " \nFarbe der Rakete: " +
-            rocket.Farbe + " \nRadius der Rakete: " + rocket.Radius + " \nLebensdauer der Rakete: " + rocket.Lebensdauer +
+            rocket.Farbe + " \nLebensdauer der Rakete: " + rocket.Lebensdauer +
             " \nAnzahl der Partikel: " + rocket.AnzahlPartikel);
     }
 })(Firework_Compilation || (Firework_Compilation = {}));

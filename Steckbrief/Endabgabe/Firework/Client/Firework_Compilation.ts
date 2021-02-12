@@ -7,7 +7,6 @@ namespace Firework_Compilation {
         Name:string, 
         Form:string, 
         Farbe:string,
-        Radius:number,
         Lebensdauer:number,
         AnzahlPartikel:string
      } 
@@ -33,11 +32,12 @@ namespace Firework_Compilation {
         let formData: FormData = new FormData(form);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         let response: Response = await fetch(url + "/store?" + query.toString());
+        console.log(query.toString());
         let responseText: string = await response.text();
         let rocket:Rocket = JSON.parse(responseText);
         alert("Folgende Daten wurden an den Server geschickt:\nName der Rakete: "+
         rocket.Name+" \nForm der Rakete: "+rocket.Form+" \nFarbe der Rakete: "+
-        rocket.Farbe+" \nRadius der Rakete: "+rocket.Radius+" \nLebensdauer der Rakete: "+rocket.Lebensdauer+
+        rocket.Farbe+" \nLebensdauer der Rakete: "+rocket.Lebensdauer+
         " \nAnzahl der Partikel: "+rocket.AnzahlPartikel);
     }
 }

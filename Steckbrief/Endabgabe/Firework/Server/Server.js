@@ -6,7 +6,7 @@ const Url = require("url");
 const Mongo = require("mongodb");
 var Firework_Compilation;
 (function (Firework_Compilation) {
-    let databaseUrl = "mongodb://localhost:27017";
+    let databaseUrl = "mongodb+srv://Aileen:1234@clusterfireworkeia2.bk6eh.mongodb.net/Firework?retryWrites=true&w=majority";
     let options = { useNewUrlParser: true, useUnifiedTopology: true };
     let mongoClient = new Mongo.MongoClient(databaseUrl, options);
     let fireworks;
@@ -25,18 +25,15 @@ var Firework_Compilation;
         console.log("Database connection ", fireworks != undefined);
     }
     async function handleRequest(_request, _response) {
-        console.log("What's up?");
-        let a = Url.parse(_request.url).pathname;
+        let pathname = Url.parse(_request.url).pathname;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        let nodeArr;
-        switch (a) {
+        switch (pathname) {
             case "/rockets":
                 console.log("rockets");
-                getData(function (res) {
-                    nodeArr = res;
-                    let respArr = JSON.stringify(nodeArr);
-                    _response.write(respArr);
+                getData(function (result) {
+                    let responseArray = JSON.stringify(result);
+                    _response.write(responseArray);
                     _response.end();
                 });
                 break;
@@ -48,14 +45,26 @@ var Firework_Compilation;
                 storeFirework(url.query);
                 _response.end();
                 break;
+            case "/delete":
+                console.log("delete");
+                let url2 = Url.parse(_request.url, true);
+                let jsonString2 = JSON.stringify(url2.query);
+                let del = JSON.parse(jsonString2);
+                _response.write(jsonString2);
+                deleteFirework(del.name);
+                _response.end();
+                break;
             default:
                 _response.writeHead(404);
                 _response.end();
                 break;
         }
     }
-    function storeFirework(_order) {
-        fireworks.insertOne(_order);
+    function storeFirework(_firework) {
+        fireworks.insertOne(_firework);
+    }
+    function deleteFirework(rocketName) {
+        fireworks.deleteOne({ "Name": rocketName });
     }
     function getData(callback) {
         mongoClient.db("Firework").collection("Compilations").find({}).toArray(function (err, docs) {
