@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "start":"node Steckbrief/Endabgabe/Firework_Compilation/Server/Server.js"
+      "start":"node Steckbrief/Endabgabe/Firework/Server/Server.js"
   },
   "repository": {
     "type": "git",
