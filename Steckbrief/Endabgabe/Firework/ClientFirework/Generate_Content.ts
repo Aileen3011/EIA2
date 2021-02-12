@@ -64,7 +64,7 @@ namespace Firework {
             createObject(e,rockets)
         });
         
-        window.setInterval(update, 20);
+        window.setInterval(update, 20)
     }
 
     function createListener(rockets:RocketDatabase[]) {
