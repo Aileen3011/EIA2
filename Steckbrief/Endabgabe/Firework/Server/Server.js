@@ -10,7 +10,10 @@ var Firework_Compilation;
     let options = { useNewUrlParser: true, useUnifiedTopology: true };
     let mongoClient = new Mongo.MongoClient(databaseUrl, options);
     let fireworks;
-    let port = 5001;
+    let port = process.env.PORT;
+    if (port == undefined) {
+        port = 5001;
+    }
     startServer(port);
     connectToDatabase(databaseUrl);
     function startServer(_port) {

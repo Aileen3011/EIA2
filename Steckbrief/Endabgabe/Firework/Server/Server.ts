@@ -17,7 +17,10 @@ export namespace Firework_Compilation {
     let options: Mongo.MongoClientOptions = {useNewUrlParser: true, useUnifiedTopology: true};
     let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(databaseUrl, options);
     let fireworks: Mongo.Collection;
-    let port:number =5001;  
+    let port:number | string| undefined = process.env.PORT;
+    if(port==undefined){
+        port = 5001;
+    }
 
     startServer(port);
     connectToDatabase(databaseUrl);
