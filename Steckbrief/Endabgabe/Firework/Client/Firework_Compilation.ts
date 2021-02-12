@@ -14,7 +14,7 @@ namespace Firework {
     let form: HTMLFormElement;
     let button: HTMLFormElement;
     
-    let url: string = "https://eia2wintersemester.herokuapp.com";
+    let url: string = "https://eia2wintersemester.herokuapp.com"
 
     async function handleLoad(_event: Event): Promise<void> {
         console.log("Init");
