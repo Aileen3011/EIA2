@@ -31,18 +31,17 @@ namespace Firework {
                     crc2.save();
                     crc2.beginPath();
                     crc2.translate(this.position.x, this.position.y);
-                    crc2.arc(0, 0, 4, 0, 2 * Math.PI);
+                    crc2.arc(0, 0, 5, 0, 2 * Math.PI);
                     crc2.closePath();
                     crc2.fillStyle = this.farbe;
                     crc2.fill();
                     crc2.restore();
                     break;
-                case "confetti":
+                case "Quadrat":
                     crc2.save();
                     crc2.beginPath();
                     crc2.translate(this.position.x, this.position.y);
-                    crc2.scale(0.5, 0.5);
-                    crc2.ellipse(0, 0, 3, 12, Math.PI / 7, 0, 2 * Math.PI);
+                    crc2.fillRect(5, 5, 5, 5);
                     crc2.closePath();
                     crc2.fillStyle = this.farbe;
                     crc2.fill();

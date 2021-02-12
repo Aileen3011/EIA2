@@ -22,18 +22,17 @@ var Firework;
                     Firework.crc2.save();
                     Firework.crc2.beginPath();
                     Firework.crc2.translate(this.position.x, this.position.y);
-                    Firework.crc2.arc(0, 0, 4, 0, 2 * Math.PI);
+                    Firework.crc2.arc(0, 0, 5, 0, 2 * Math.PI);
                     Firework.crc2.closePath();
                     Firework.crc2.fillStyle = this.farbe;
                     Firework.crc2.fill();
                     Firework.crc2.restore();
                     break;
-                case "confetti":
+                case "Quadrat":
                     Firework.crc2.save();
                     Firework.crc2.beginPath();
                     Firework.crc2.translate(this.position.x, this.position.y);
-                    Firework.crc2.scale(0.5, 0.5);
-                    Firework.crc2.ellipse(0, 0, 3, 12, Math.PI / 7, 0, 2 * Math.PI);
+                    Firework.crc2.fillRect(5, 5, 5, 5);
                     Firework.crc2.closePath();
                     Firework.crc2.fillStyle = this.farbe;
                     Firework.crc2.fill();
