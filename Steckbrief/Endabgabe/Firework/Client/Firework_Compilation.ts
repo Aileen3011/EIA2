@@ -14,7 +14,7 @@ namespace Firework {
     let form: HTMLFormElement;
     let button: HTMLFormElement;
     
-    let url: string = "https://eia2wintersemester.herokuapp.com";//http://localhost:5001
+    let urlStore: string = "https://eia2wintersemester.herokuapp.com/store";//http://localhost:5001
 
     async function handleLoad(_event: Event): Promise<void> {
         console.log("Init");
@@ -31,7 +31,7 @@ namespace Firework {
         console.log("Send order");
         let formData: FormData = new FormData(form);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        let response: Response = await fetch(url + "store"+"?" + query.toString());
+        let response: Response = await fetch(urlStore + "?" + query.toString());
         console.log(query.toString());
         let responseText: string = await response.text();
         let rocket:Rocket = JSON.parse(responseText);
