@@ -31,7 +31,7 @@ namespace Firework_Compilation {
         console.log("Send order");
         let formData: FormData = new FormData(form);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        let response: Response = await fetch(url + "/store?" + query.toString());
+        let response: Response = await fetch(url + "store"+"?" + query.toString());
         console.log(query.toString());
         let responseText: string = await response.text();
         let rocket:Rocket = JSON.parse(responseText);

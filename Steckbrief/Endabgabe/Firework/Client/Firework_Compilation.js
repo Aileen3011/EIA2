@@ -15,7 +15,7 @@ var Firework_Compilation;
         console.log("Send order");
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
-        let response = await fetch(url + "/store?" + query.toString());
+        let response = await fetch(url + "store" + "?" + query.toString());
         console.log(query.toString());
         let responseText = await response.text();
         let rocket = JSON.parse(responseText);
