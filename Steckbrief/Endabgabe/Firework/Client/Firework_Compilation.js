@@ -4,7 +4,7 @@ var Firework;
     window.addEventListener("load", handleLoad);
     let form;
     let button;
-    let urlStore = "https://eia2wintersemester.herokuapp.com" + "/" + "store";
+    let urlStore = "https://eia2wintersemester.herokuapp.com:" + process.env.PORT + "/" + "store";
     async function handleLoad(_event) {
         console.log("Init");
         form = document.querySelector("form");
