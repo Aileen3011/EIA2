@@ -4,7 +4,7 @@ var Firework_Compilation;
     window.addEventListener("load", handleLoad);
     let form;
     let button;
-    let url = "https://eia2wintersemester.herokuapp.com/"; //http://localhost:5001
+    let url = "https://eia2wintersemester.herokuapp.com"; //http://localhost:5001
     async function handleLoad(_event) {
         console.log("Init");
         form = document.querySelector("form");
