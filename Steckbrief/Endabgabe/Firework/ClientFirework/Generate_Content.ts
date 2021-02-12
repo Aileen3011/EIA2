@@ -15,7 +15,7 @@ namespace Firework {
         name:string;
     }
 
-    let url: string = "https://eia2wintersemester.herokuapp.com";
+    let url: string = "https://eia2wintersemester.herokuapp.com"
     let auswahl: number = 0;
     export let crc2: CanvasRenderingContext2D;
     let moveables: MoveableObject[] = [];
