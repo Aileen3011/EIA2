@@ -1,6 +1,6 @@
 "use strict";
-var Firework_Compilation;
-(function (Firework_Compilation) {
+var Firework;
+(function (Firework) {
     window.addEventListener("load", handleLoad);
     let form;
     let button;
@@ -24,5 +24,5 @@ var Firework_Compilation;
             rocket.Farbe + " \nLebensdauer der Rakete: " + rocket.Lebensdauer +
             " \nAnzahl der Partikel: " + rocket.AnzahlPartikel);
     }
-})(Firework_Compilation || (Firework_Compilation = {}));
+})(Firework || (Firework = {}));
 //# sourceMappingURL=Firework_Compilation.js.map

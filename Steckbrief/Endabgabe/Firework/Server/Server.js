@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Firework_Compilation = void 0;
+exports.Firework = void 0;
 const Http = require("http");
 const Url = require("url");
 const Mongo = require("mongodb");
-var Firework_Compilation;
-(function (Firework_Compilation) {
+var Firework;
+(function (Firework) {
     let databaseUrl = "mongodb+srv://Aileen:1234@clusterfireworkeia2.bk6eh.mongodb.net/Firework?retryWrites=true&w=majority";
     let options = { useNewUrlParser: true, useUnifiedTopology: true };
     let mongoClient = new Mongo.MongoClient(databaseUrl, options);
@@ -76,5 +76,5 @@ var Firework_Compilation;
             callback(docs);
         });
     }
-})(Firework_Compilation = exports.Firework_Compilation || (exports.Firework_Compilation = {}));
+})(Firework = exports.Firework || (exports.Firework = {}));
 //# sourceMappingURL=Server.js.map

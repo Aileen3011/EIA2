@@ -1,6 +1,6 @@
 
 
-namespace Firework_Compilation {
+namespace Firework {
     window.addEventListener("load", handleLoad);
 
     interface Rocket { 
