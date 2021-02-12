@@ -4,7 +4,7 @@ var Firework;
     window.addEventListener("load", handleLoad);
     let form;
     let button;
-    let url = "https://eia2wintersemester.herokuapp.com";
+    let url = "https://eia2wintersemester.herokuapp.com"; //"http://localhost:5001"
     async function handleLoad(_event) {
         console.log("Init");
         form = document.querySelector("form");
@@ -12,7 +12,6 @@ var Firework;
         button.addEventListener("click", sendFireworkData);
     }
     async function sendFireworkData(_event) {
-        console.log("Send order");
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
         let response = await fetch(url + "/store?" + query.toString());

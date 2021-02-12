@@ -1,7 +1,7 @@
 "use strict";
 var Firework;
 (function (Firework) {
-    let url = "https://eia2wintersemester.herokuapp.com";
+    let url = "https://eia2wintersemester.herokuapp.com"; //"http://localhost:5001"
     let auswahl = 0;
     let moveables = [];
     window.addEventListener("load", handleLoad);

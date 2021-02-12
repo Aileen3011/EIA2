@@ -15,10 +15,10 @@ namespace Firework {
         name:string;
     }
 
-    let url: string = "https://eia2wintersemester.herokuapp.com"
+    let url: string = "https://eia2wintersemester.herokuapp.com" //"http://localhost:5001"
     let auswahl: number = 0;
     export let crc2: CanvasRenderingContext2D;
-    let moveables: MoveableObject[] = [];
+    let moveables: Moveable[] = [];
    
     window.addEventListener("load", handleLoad);
 
@@ -146,7 +146,7 @@ namespace Firework {
             let px: number = Math.cos(radian * i) * 110 * Math.random() * 2; //(2)power
             let py: number = Math.sin(radian * i) * 110 * Math.random() * 2; //(2)power
             let velocity: Vector = new Vector(px, py);
-            let particle: MoveableObject = new Particle(origin, velocity, _farbe, _lebensdauer, _form);
+            let particle: Moveable = new Particle(origin, velocity, _farbe, _lebensdauer, _form);
             moveables.push(particle);
 
         }

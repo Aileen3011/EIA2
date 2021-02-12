@@ -1,5 +1,5 @@
 namespace Firework {
-    export abstract class MoveableObject {
+    export abstract class Moveable {
         public position: Vector;
         public velocity: Vector;
         public expendable: boolean = false;

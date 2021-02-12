@@ -1,7 +1,7 @@
 "use strict";
 var Firework;
 (function (Firework) {
-    class MoveableObject {
+    class Moveable {
         constructor(_position) {
             this.expendable = false;
             if (_position)
@@ -16,6 +16,6 @@ var Firework;
             this.position.add(offset);
         }
     }
-    Firework.MoveableObject = MoveableObject;
+    Firework.Moveable = Moveable;
 })(Firework || (Firework = {}));
-//# sourceMappingURL=MoveableObject.js.map
+//# sourceMappingURL=Moveable.js.map

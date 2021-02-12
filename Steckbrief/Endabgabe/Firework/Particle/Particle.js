@@ -1,7 +1,7 @@
 "use strict";
 var Firework;
 (function (Firework) {
-    class Particle extends Firework.MoveableObject {
+    class Particle extends Firework.Moveable {
         constructor(_position, _velocity, _farbe, _lebensdauer, _form) {
             super(_position);
             this.farbe = _farbe;
@@ -22,7 +22,7 @@ var Firework;
                     Firework.crc2.save();
                     Firework.crc2.beginPath();
                     Firework.crc2.translate(this.position.x, this.position.y);
-                    Firework.crc2.arc(0, 0, 5, 0, 2 * Math.PI);
+                    Firework.crc2.arc(0, 0, 3.5, 0, 2 * Math.PI);
                     Firework.crc2.closePath();
                     Firework.crc2.fillStyle = this.farbe;
                     Firework.crc2.fill();
@@ -32,42 +32,36 @@ var Firework;
                     Firework.crc2.save();
                     Firework.crc2.beginPath();
                     Firework.crc2.translate(this.position.x, this.position.y);
-                    Firework.crc2.fillRect(5, 5, 5, 5);
-                    Firework.crc2.closePath();
                     Firework.crc2.fillStyle = this.farbe;
-                    Firework.crc2.fill();
+                    Firework.crc2.fillRect(0, 0, 7, 7);
+                    Firework.crc2.closePath();
                     Firework.crc2.restore();
                     break;
-                case "star":
+                case "Dreieck":
                     Firework.crc2.save();
                     Firework.crc2.beginPath();
                     Firework.crc2.translate(this.position.x, this.position.y);
-                    Firework.crc2.scale(0.2, 0.2);
-                    Firework.crc2.moveTo(75, 30);
-                    Firework.crc2.lineTo(90, 60);
-                    Firework.crc2.lineTo(125, 75);
-                    Firework.crc2.lineTo(95, 85);
-                    Firework.crc2.lineTo(105, 130);
-                    Firework.crc2.lineTo(75, 110);
-                    Firework.crc2.lineTo(45, 130);
-                    Firework.crc2.lineTo(55, 85);
-                    Firework.crc2.lineTo(55, 85);
-                    Firework.crc2.lineTo(20, 70);
-                    Firework.crc2.lineTo(55, 60);
-                    Firework.crc2.closePath();
                     Firework.crc2.fillStyle = this.farbe;
+                    Firework.crc2.moveTo(15, 10);
+                    Firework.crc2.lineTo(20, 15);
+                    Firework.crc2.lineTo(20, 5);
+                    Firework.crc2.closePath();
                     Firework.crc2.fill();
                     Firework.crc2.restore();
                     break;
-                case "popcorn":
+                case "Herz":
                     Firework.crc2.save();
                     Firework.crc2.beginPath();
                     Firework.crc2.translate(this.position.x, this.position.y);
-                    Firework.crc2.scale(0.5, 0.5);
-                    Firework.crc2.ellipse(0, 0, 3, 12, Math.PI / 7, 0, 2 * Math.PI);
-                    Firework.crc2.ellipse(0, 0, 3, 12, Math.PI / -7, 0, 2 * Math.PI);
-                    Firework.crc2.closePath();
                     Firework.crc2.fillStyle = this.farbe;
+                    Firework.crc2.moveTo(7.5, 4);
+                    Firework.crc2.bezierCurveTo(7.5, 3.7, 7, 2.5, 5, 2.5);
+                    Firework.crc2.bezierCurveTo(2, 2.5, 2, 6.25, 2, 6.25);
+                    Firework.crc2.bezierCurveTo(2, 8, 4, 10.2, 7.5, 12);
+                    Firework.crc2.bezierCurveTo(11, 10.2, 13, 8, 13, 6.25);
+                    Firework.crc2.bezierCurveTo(13, 6.25, 13, 2.5, 10, 2.5);
+                    Firework.crc2.bezierCurveTo(8.5, 2.5, 7.5, 3.7, 7.5, 4);
+                    Firework.crc2.closePath();
                     Firework.crc2.fill();
                     Firework.crc2.restore();
                     break;

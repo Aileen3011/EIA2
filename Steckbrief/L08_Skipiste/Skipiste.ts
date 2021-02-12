@@ -14,7 +14,7 @@ namespace L08_Skipiste {
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
         let posMountains: Vector = { x: 0, y: 600};
-
+        
         drawBackground();
         drawSun({x:90, y:80});
         drawCloud({x:700, y:100}, {x:180, y:75});
@@ -28,6 +28,8 @@ namespace L08_Skipiste {
         drawSnowflakes();
         
     }
+
+    
 
     function drawBackground(){
        console.log("Background")

@@ -1,5 +1,5 @@
 namespace Firework {
-    export class Particle extends MoveableObject {
+    export class Particle extends Moveable {
         private static gravity: number = 1;
         public position: Vector;
         public velocity: Vector;
@@ -31,7 +31,7 @@ namespace Firework {
                     crc2.save();
                     crc2.beginPath();
                     crc2.translate(this.position.x, this.position.y);
-                    crc2.arc(0, 0, 5, 0, 2 * Math.PI);
+                    crc2.arc(0, 0, 3.5, 0, 2 * Math.PI);
                     crc2.closePath();
                     crc2.fillStyle = this.farbe;
                     crc2.fill();
@@ -41,42 +41,36 @@ namespace Firework {
                     crc2.save();
                     crc2.beginPath();
                     crc2.translate(this.position.x, this.position.y);
-                    crc2.fillRect(5, 5, 5, 5);
-                    crc2.closePath();
                     crc2.fillStyle = this.farbe;
-                    crc2.fill();
+                    crc2.fillRect(0, 0, 7, 7);
+                    crc2.closePath();
                     crc2.restore();
                     break;
-                case "star":
+                case "Dreieck":
                     crc2.save();
                     crc2.beginPath();
                     crc2.translate(this.position.x, this.position.y);
-                    crc2.scale(0.2, 0.2);
-                    crc2.moveTo(75, 30);
-                    crc2.lineTo(90, 60);
-                    crc2.lineTo(125, 75);
-                    crc2.lineTo(95, 85);
-                    crc2.lineTo(105, 130);
-                    crc2.lineTo(75, 110);
-                    crc2.lineTo(45, 130);
-                    crc2.lineTo(55, 85);
-                    crc2.lineTo(55, 85);
-                    crc2.lineTo(20, 70);
-                    crc2.lineTo(55, 60);
-                    crc2.closePath();
                     crc2.fillStyle = this.farbe;
+                    crc2.moveTo(15, 10);
+                    crc2.lineTo(20, 15);
+                    crc2.lineTo(20,5);
+                    crc2.closePath();
                     crc2.fill();
                     crc2.restore();
                     break;
-                case "popcorn":
+                case "Herz":
                     crc2.save();
                     crc2.beginPath();
                     crc2.translate(this.position.x, this.position.y);
-                    crc2.scale(0.5, 0.5);
-                    crc2.ellipse(0, 0, 3, 12, Math.PI / 7, 0, 2 * Math.PI);
-                    crc2.ellipse(0, 0, 3, 12, Math.PI / -7, 0, 2 * Math.PI);
-                    crc2.closePath();
                     crc2.fillStyle = this.farbe;
+                    crc2.moveTo(7.5, 4);
+                    crc2.bezierCurveTo(7.5, 3.7, 7, 2.5, 5, 2.5);
+                    crc2.bezierCurveTo(2, 2.5, 2, 6.25, 2, 6.25);
+                    crc2.bezierCurveTo(2, 8, 4, 10.2, 7.5, 12);
+                    crc2.bezierCurveTo(11, 10.2, 13, 8, 13, 6.25);
+                    crc2.bezierCurveTo(13, 6.25, 13, 2.5, 10, 2.5);
+                    crc2.bezierCurveTo(8.5, 2.5, 7.5, 3.7, 7.5, 4);
+                    crc2.closePath();
                     crc2.fill();
                     crc2.restore();
                     break;
