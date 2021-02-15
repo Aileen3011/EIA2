@@ -43,10 +43,7 @@ export namespace Firework {
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
         
         let pathname = Url.parse(_request.url!).pathname;
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
        
-
         switch(pathname){
             case "/rockets":
                 console.log("rockets");
@@ -92,9 +89,13 @@ export namespace Firework {
 
     function getData(callback:any):void{
         
-        mongoClient.db("Firework").collection("Compilations").find({}).toArray(function (err, docs) {
-            if (err) throw err;
-            callback(docs);
+        mongoClient.db("Firework").collection("Compilations").find({}).toArray(function (err, data) {
+            if (err) {
+                throw err;
+            }
+            else {
+                callback(data);
+            }
           });  
           
               

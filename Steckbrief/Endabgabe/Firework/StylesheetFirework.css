@@ -1,15 +1,10 @@
-#input{
+#input{                                               
 	position: relative;
 	width: 100%;
 	height: 100px;
 	overflow-y: scroll;
-	scrollbar-highlight-color: blanchedalmond;
-	scrollbar-color: white green;
 }
 
-.scrollable-element {
-	scrollbar-color: red yellow;
-  }
 canvas{
 	position: absolute;
 	margin: 0 auto;
@@ -78,12 +73,3 @@ a{
 	width: 150px;
 }
 
-#input {
-	scrollbar-face-color: #000033 !important;
-	scrollbar-shadow-color: #000033 !important;
-	scrollbar-highlight-color: white !important;
-	scrollbar-3dlight-color: white !important;
-	scrollbar-darkshadow-color: #000033 !important;
-	scrollbar-track-color: #000033 !important;
-	scrollbar-arrow-color: #000033 !important;
-  }

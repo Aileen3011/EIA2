@@ -1,10 +1,9 @@
 namespace Firework {
     export abstract class Moveable {
-        public position: Vector;
-        public velocity: Vector;
+        protected position: Vector;            //Public oder protected?
+        protected velocity: Vector;           //Public oder protected?
         public expendable: boolean = false;
-
-
+       
         constructor(_position?: Vector) {
 
             if (_position)
@@ -18,9 +17,10 @@ namespace Firework {
 
         public move(_timeslice: number): void {
 
-            let offset: Vector = this.velocity.copy();
-            offset.scale(_timeslice);
-            this.position.add(offset);
+            let offset: Vector = this.velocity.copy();    
+            offset.scale(_timeslice);         
+            this.position.add(offset);       
+
         }
 
         public abstract draw(): void;   

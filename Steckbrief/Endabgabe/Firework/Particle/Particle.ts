@@ -1,46 +1,46 @@
 namespace Firework {
     export class Particle extends Moveable {
+      //  public position: Vector;    Brauche ich nicht?
+      //  public velocity: Vector;    Brauche ich nicht?
         private static gravity: number = 1;
-        public position: Vector;
-        public velocity: Vector;
-        private form: string;
+        public form: string;
         private lebensdauer: number;
         private farbe: string;
 
 
-        constructor(_position: Vector, _velocity: Vector, _farbe: string, _lebensdauer: number, _form: string) {
+        constructor(_position: Vector,  _form: string,  _farbe: string, _lebensdauer: number, _velocity: Vector) { //_lebensdauer: number, _velocity: Vector,
             super(_position);
-            this.farbe = _farbe;
             this.velocity = _velocity.copy();
-            this.lebensdauer = _lebensdauer;
             this.form = _form;
+            this.lebensdauer = _lebensdauer;
+            this.farbe = _farbe;
+            
         }
 
-        public move(_timeslice: number): void {
-            super.move(_timeslice);
-            this.velocity.y += Particle.gravity;
-            this.lebensdauer -= _timeslice;
-            if (this.lebensdauer < 0)
-                this.expendable = true;
-        }
-
+        public move(_timeslice: number): void {    
+              super.move(_timeslice);  
+              this.velocity.y += Particle.gravity;   //sarah
+              this.lebensdauer -= _timeslice;
+              if (this.lebensdauer < 0)
+                  this.expendable = true;
+          } 
 
         public draw(): void {
             switch (this.form) {
                 case "Kreis":
                     crc2.save();
-                    crc2.beginPath();
                     crc2.translate(this.position.x, this.position.y);
+                    crc2.beginPath();
+                    crc2.fillStyle = this.farbe;
                     crc2.arc(0, 0, 3.5, 0, 2 * Math.PI);
                     crc2.closePath();
-                    crc2.fillStyle = this.farbe;
                     crc2.fill();
                     crc2.restore();
                     break;
                 case "Quadrat":
                     crc2.save();
-                    crc2.beginPath();
                     crc2.translate(this.position.x, this.position.y);
+                    crc2.beginPath();
                     crc2.fillStyle = this.farbe;
                     crc2.fillRect(0, 0, 7, 7);
                     crc2.closePath();
@@ -48,8 +48,8 @@ namespace Firework {
                     break;
                 case "Dreieck":
                     crc2.save();
-                    crc2.beginPath();
                     crc2.translate(this.position.x, this.position.y);
+                    crc2.beginPath();
                     crc2.fillStyle = this.farbe;
                     crc2.moveTo(15, 10);
                     crc2.lineTo(20, 15);
@@ -60,8 +60,8 @@ namespace Firework {
                     break;
                 case "Herz":
                     crc2.save();
-                    crc2.beginPath();
                     crc2.translate(this.position.x, this.position.y);
+                    crc2.beginPath();
                     crc2.fillStyle = this.farbe;
                     crc2.moveTo(7.5, 4);
                     crc2.bezierCurveTo(7.5, 3.7, 7, 2.5, 5, 2.5);

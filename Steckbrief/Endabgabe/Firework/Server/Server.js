@@ -29,8 +29,6 @@ var Firework;
     }
     async function handleRequest(_request, _response) {
         let pathname = Url.parse(_request.url).pathname;
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
         switch (pathname) {
             case "/rockets":
                 console.log("rockets");
@@ -70,10 +68,13 @@ var Firework;
         fireworks.deleteOne({ "Name": rocketName });
     }
     function getData(callback) {
-        mongoClient.db("Firework").collection("Compilations").find({}).toArray(function (err, docs) {
-            if (err)
+        mongoClient.db("Firework").collection("Compilations").find({}).toArray(function (err, data) {
+            if (err) {
                 throw err;
-            callback(docs);
+            }
+            else {
+                callback(data);
+            }
         });
     }
 })(Firework = exports.Firework || (exports.Firework = {}));

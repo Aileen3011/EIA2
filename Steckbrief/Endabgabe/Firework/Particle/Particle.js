@@ -2,16 +2,16 @@
 var Firework;
 (function (Firework) {
     class Particle extends Firework.Moveable {
-        constructor(_position, _velocity, _farbe, _lebensdauer, _form) {
+        constructor(_position, _form, _farbe, _lebensdauer, _velocity) {
             super(_position);
-            this.farbe = _farbe;
             this.velocity = _velocity.copy();
-            this.lebensdauer = _lebensdauer;
             this.form = _form;
+            this.lebensdauer = _lebensdauer;
+            this.farbe = _farbe;
         }
         move(_timeslice) {
             super.move(_timeslice);
-            this.velocity.y += Particle.gravity;
+            this.velocity.y += Particle.gravity; //sarah
             this.lebensdauer -= _timeslice;
             if (this.lebensdauer < 0)
                 this.expendable = true;
@@ -20,18 +20,18 @@ var Firework;
             switch (this.form) {
                 case "Kreis":
                     Firework.crc2.save();
-                    Firework.crc2.beginPath();
                     Firework.crc2.translate(this.position.x, this.position.y);
+                    Firework.crc2.beginPath();
+                    Firework.crc2.fillStyle = this.farbe;
                     Firework.crc2.arc(0, 0, 3.5, 0, 2 * Math.PI);
                     Firework.crc2.closePath();
-                    Firework.crc2.fillStyle = this.farbe;
                     Firework.crc2.fill();
                     Firework.crc2.restore();
                     break;
                 case "Quadrat":
                     Firework.crc2.save();
-                    Firework.crc2.beginPath();
                     Firework.crc2.translate(this.position.x, this.position.y);
+                    Firework.crc2.beginPath();
                     Firework.crc2.fillStyle = this.farbe;
                     Firework.crc2.fillRect(0, 0, 7, 7);
                     Firework.crc2.closePath();
@@ -39,8 +39,8 @@ var Firework;
                     break;
                 case "Dreieck":
                     Firework.crc2.save();
-                    Firework.crc2.beginPath();
                     Firework.crc2.translate(this.position.x, this.position.y);
+                    Firework.crc2.beginPath();
                     Firework.crc2.fillStyle = this.farbe;
                     Firework.crc2.moveTo(15, 10);
                     Firework.crc2.lineTo(20, 15);
@@ -51,8 +51,8 @@ var Firework;
                     break;
                 case "Herz":
                     Firework.crc2.save();
-                    Firework.crc2.beginPath();
                     Firework.crc2.translate(this.position.x, this.position.y);
+                    Firework.crc2.beginPath();
                     Firework.crc2.fillStyle = this.farbe;
                     Firework.crc2.moveTo(7.5, 4);
                     Firework.crc2.bezierCurveTo(7.5, 3.7, 7, 2.5, 5, 2.5);
@@ -68,6 +68,8 @@ var Firework;
             }
         }
     }
+    //  public position: Vector;    Brauche ich nicht?
+    //  public velocity: Vector;    Brauche ich nicht?
     Particle.gravity = 1;
     Firework.Particle = Particle;
 })(Firework || (Firework = {}));

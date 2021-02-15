@@ -1,5 +1,3 @@
-
-
 namespace Firework {
     
     interface RocketDatabase { 
@@ -29,7 +27,7 @@ namespace Firework {
         let responseText: string = await response.text();
         let rockets:RocketDatabase[]= JSON.parse(responseText);
         
-        let output = document.getElementById("input")!;
+        let output = document.getElementById("input")!;  //im output werden die buttons angezeigt
 
         output.innerHTML="";
         let InputHTML:string = "";
@@ -37,7 +35,7 @@ namespace Firework {
             InputHTML=InputHTML+"<span>No rockets created</span>"
         }
 
-        for (let index = 0; index < rockets.length; index++) {
+        for (let index = 0; index < rockets.length; index++) {     
             if (index==0) {
                 InputHTML = InputHTML +"<button class='Current' id='button"+index+"' type='submit'>"+rockets[index].Name+"</button><button class='restDel' id='buttonDel"+index+"' type='submit'><i class='fa fa-trash'></i></button><br>"
             }else{
@@ -89,7 +87,7 @@ namespace Firework {
 
     function chooseFirework(index:string,rockets:RocketDatabase[]) {
         for (let i = 0; i < rockets.length; i++) {
-            const button = document.getElementById("button"+i)!;
+            const button = document.getElementById("button"+i)!;  // erst alles weiß machen und dann current auf blau
             button.setAttribute("class","rest");
         }
         const button = document.getElementById(index)!;
@@ -146,7 +144,7 @@ namespace Firework {
             let px: number = Math.cos(radian * i) * 110 * Math.random() * 2; //(2)power
             let py: number = Math.sin(radian * i) * 110 * Math.random() * 2; //(2)power
             let velocity: Vector = new Vector(px, py);
-            let particle: Moveable = new Particle(origin, velocity, _farbe, _lebensdauer, _form);
+            let particle: Moveable = new Particle(origin, _form, _farbe, _lebensdauer, velocity);
             moveables.push(particle);
 
         }

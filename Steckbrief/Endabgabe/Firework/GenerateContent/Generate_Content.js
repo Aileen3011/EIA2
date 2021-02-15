@@ -10,7 +10,7 @@ var Firework;
         let response = await fetch(url + "/rockets");
         let responseText = await response.text();
         let rockets = JSON.parse(responseText);
-        let output = document.getElementById("input");
+        let output = document.getElementById("input"); //im output werden die buttons angezeigt
         output.innerHTML = "";
         let InputHTML = "";
         if (rockets.length == 0) {
@@ -54,7 +54,7 @@ var Firework;
     }
     function chooseFirework(index, rockets) {
         for (let i = 0; i < rockets.length; i++) {
-            const button = document.getElementById("button" + i);
+            const button = document.getElementById("button" + i); // erst alles weiß machen und dann current auf blau
             button.setAttribute("class", "rest");
         }
         const button = document.getElementById(index);
@@ -99,7 +99,7 @@ var Firework;
             let px = Math.cos(radian * i) * 110 * Math.random() * 2; //(2)power
             let py = Math.sin(radian * i) * 110 * Math.random() * 2; //(2)power
             let velocity = new Firework.Vector(px, py);
-            let particle = new Firework.Particle(origin, velocity, _farbe, _lebensdauer, _form);
+            let particle = new Firework.Particle(origin, _form, _farbe, _lebensdauer, velocity);
             moveables.push(particle);
         }
     }
