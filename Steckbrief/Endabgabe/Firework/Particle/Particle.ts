@@ -1,14 +1,12 @@
 namespace Firework {
     export class Particle extends Moveable {
-      //  public position: Vector;    Brauche ich nicht?
-      //  public velocity: Vector;    Brauche ich nicht?
         private static gravity: number = 1;
         public form: string;
         private lebensdauer: number;
         private farbe: string;
 
 
-        constructor(_position: Vector,  _form: string,  _farbe: string, _lebensdauer: number, _velocity: Vector) { //_lebensdauer: number, _velocity: Vector,
+        constructor(_position: Vector,  _form: string,  _farbe: string, _lebensdauer: number, _velocity: Vector) { 
             super(_position);
             this.velocity = _velocity.copy();
             this.form = _form;
@@ -19,7 +17,7 @@ namespace Firework {
 
         public move(_timeslice: number): void {    
               super.move(_timeslice);  
-              this.velocity.y += Particle.gravity;   //sarah
+              this.velocity.y += Particle.gravity;   
               this.lebensdauer -= _timeslice;
               if (this.lebensdauer < 0)
                   this.expendable = true;

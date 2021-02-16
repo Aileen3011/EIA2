@@ -11,7 +11,7 @@ var Firework;
         }
         move(_timeslice) {
             super.move(_timeslice);
-            this.velocity.y += Particle.gravity; //sarah
+            this.velocity.y += Particle.gravity;
             this.lebensdauer -= _timeslice;
             if (this.lebensdauer < 0)
                 this.expendable = true;
@@ -68,8 +68,6 @@ var Firework;
             }
         }
     }
-    //  public position: Vector;    Brauche ich nicht?
-    //  public velocity: Vector;    Brauche ich nicht?
     Particle.gravity = 1;
     Firework.Particle = Particle;
 })(Firework || (Firework = {}));

@@ -1,7 +1,7 @@
 namespace Firework {
     export abstract class Moveable {
-        protected position: Vector;            //Public oder protected?
-        protected velocity: Vector;           //Public oder protected?
+        protected position: Vector;            
+        protected velocity: Vector;           
         public expendable: boolean = false;
        
         constructor(_position?: Vector) {

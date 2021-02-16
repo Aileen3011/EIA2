@@ -1,4 +1,5 @@
 "use strict";
+//teilweise Inspo von Sarah
 var Firework;
 (function (Firework) {
     let url = "https://eia2wintersemester.herokuapp.com"; //"http://localhost:5001"
@@ -88,7 +89,7 @@ var Firework;
     }
     function deleteExpandables() {
         for (let index = moveables.length - 1; index >= 0; index--) {
-            if (moveables[index].expendable) //im Array an stelle des gerade befindenden Index
+            if (moveables[index].expendable)
                 moveables.splice(index, 1);
         }
     }

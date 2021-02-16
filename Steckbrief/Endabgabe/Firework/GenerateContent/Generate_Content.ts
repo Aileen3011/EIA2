@@ -1,3 +1,4 @@
+//teilweise Inspo von Sarah
 namespace Firework {
     
     interface RocketDatabase { 
@@ -130,7 +131,7 @@ namespace Firework {
 
     function deleteExpandables(): void {
         for (let index: number = moveables.length - 1; index >= 0; index--) {
-            if (moveables[index].expendable) //im Array an stelle des gerade befindenden Index
+            if (moveables[index].expendable) 
                 moveables.splice(index, 1);
         }
     }
